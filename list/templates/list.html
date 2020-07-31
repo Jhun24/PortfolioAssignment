@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h2>포트폴리오</h2>
+    </div>
+    <div class="list">
+        <div class="list-box">
+            <div class="list-content">
+                <div class="image-box">
+                    <img src="{% static 'image/sakura.jpg' %}">
+                </div>
+                <div class="content-box">
+                    <h2>제목</h2>
+                    <div class="button-box">
+                        <div class="view">View</div>
+                        <div class="edit">Edit</div>
+                    </div>
+                </div>
+            </div>
+            {% for listdata in listdatas.all %}
+            <div class="list-content">
+             
+                <div class="image-box">
+                    <img src="{{listdata.image.url}}">
+                </div>
+                <div class="content-box">
+                    <h2>{{listdata.title}}</h2>
+                    <div class="button-box">
+                        <div class="view">View</div>
+                        <div class="edit">Edit</div>
+                    </div>
+                </div>
+            
+            </div>
+            {% endfor %}
+            <div class="list-content-null">
+                
+            </div>
+
+            <div class="list-content-null">
+                
+            </div>
+        </div>
+  
+    </div>
+</body>
+</html>
